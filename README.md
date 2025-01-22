@@ -50,6 +50,9 @@ Because this created a "shorter" instruction other than the double word instruct
 <br>
 - Instead of tampering the timer just find the subroutine that enables the weapon. I could not find it.
 - Fix the buggy counter which shows up for a few seconds until it gets stuck at 0. I have an idea where it is.<br><br>
+
+![alt text](https://i.ibb.co/8XKJGXy/TimerBug.png)
+
 At $C08D88 - The memory area that holds the byte or word with the upper part of the timer count.<br>
 At $C08E88 - The memory area that holds the byte or word with the lower part of the timer count.<br>
 <br>
