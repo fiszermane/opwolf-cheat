@@ -43,7 +43,7 @@ I change this to <br><br>
 `<action>maincpu.mw@00A35A=60F0</action>
 <action>maincpu.mw@00A35C=4E71</action>`
 <br><br>
-Forcing a branch to an offset $F bytes but without decrementing the counter. The $F bytes is because the `DBRA D0, $A34A` jumps $F bytes so `$a35a - $a34a = $f`.<br>
+Forcing it to go to an offset of `$F` bytes above but without decrementing the counter. The `$F` bytes is because the `DBRA D0, $A34A` jumps $F bytes so `$a35a - $a34a = $f`.<br>
 Because this created a "shorter" instruction other than the double word instruction which it replaces, I added a 2 bytes `nop` - `4E71` so it doesn't change anything of the remaining code.<br>
 <br>
 # More avenues of exploration
@@ -54,14 +54,13 @@ At $C08D88 - The memory area that holds the byte or word with the upper part of 
 At $C08E88 - The memory area that holds the byte or word with the lower part of the timer count.<br>
 <br>
 
-# Some of my findings in case it's interesting
+# Some of my findings in case it's interesting out there
 <br>
-- The Memory Map is documented but I did not use it that much.
 - Timer for the Machine Gun changes every 90 frames. There's a `BSR $544` (Bitscan Reverse) at $000522.
 - The number of frames is around here: $100932.
 - The number of shots taken during a game is around here: $100CA6.
 - When you get the Power Up the text is coming from this memory area: $1027F0. Adding a Breakpoint anywhere here `17da 17f2 a29e a2b4 a2de a2c8` and you will catch it when it renders.
-- The timer counter shown on the screen is here $100562
+- The timer counter shown on the screen is here $100562 either in byte or word.
 - A Breakpoint at $001128 will help and catch the exact instruction that helps debug what happens when "a shot" is taken - or when an interrupt happens.
 
 
