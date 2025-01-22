@@ -43,6 +43,10 @@ Its straight forward. The instruction that checks for the timer is:<br>
 It's located in $00A35A. Decrease and branch to $a34a where it will quickly return to decrease again.<br>
 <br>
 I change this to <br><br>
+`00A35A  bra     $a34c        60F0`<br>
+`00A35C  nop                  4E71`
+<br><br>
+Using the Cheat Engine:<br>
 `<action>maincpu.mw@00A35A=60F0</action>
 <action>maincpu.mw@00A35C=4E71</action>`
 <br><br>
