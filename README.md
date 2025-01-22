@@ -62,9 +62,9 @@ At $C08E88 - The memory area that holds the byte or word with the lower part of 
 
 # Some of my findings in case it's interesting out there
 <br>
-- Timer for the Machine Gun changes every 90 frames. There's a `BSR $544` (Bitscan Reverse) at $000522.
-- The number of frames is around here: $100932.
-- The number of shots taken during a game is around here: $100CA6.
-- When you get the Power Up the text is coming from this memory area: $1027F0. Adding a Breakpoint anywhere here `17da 17f2 a29e a2b4 a2de a2c8` and you will catch it when it renders.
-- The timer counter shown on the screen is here $100562 either in byte or word.
-- A Breakpoint at $001128 will help and catch the exact instruction that helps debug what happens when "a shot" is taken - or when an interrupt happens.
+- Timer for the Machine Gun changes every 90 frames. There's a `BSR $544` (Bitscan Reverse) at $000522.<br>
+- The number of frames is around here: $100932.<br>
+- The number of shots taken during a game is around here: $100CA6.<br>
+- When you get the Power Up the text is coming from this memory area: $1027F0. Adding a Breakpoint anywhere here `17da 17f2 a29e a2b4 a2de a2c8` and you will catch it when it renders.<br>
+- The timer counter shown on the screen is here $100562 either in byte or word.<br>
+- A Breakpoint at $001128 will help and catch the exact instruction that helps debug what happens when "a shot" is taken - or when an interrupt happens.<br>
