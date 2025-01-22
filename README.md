@@ -51,11 +51,11 @@ Because this created a "shorter" instruction other than the double word instruct
 <br>
 # More avenues of exploration
 <br>
-- Instead of tampering the timer just find the subroutine that enables the weapon. I could not find it.
+- Instead of tampering the timer just find the subroutine that enables the weapon. I could not find it.<br>
 - Fix the buggy counter which shows up for a few seconds until it gets stuck at 0. I have an idea where it is.<br><br>
 
-![alt text](https://i.ibb.co/8XKJGXy/TimerBug.png)
-
+![alt text](https://i.ibb.co/8XKJGXy/TimerBug.png)<br>
+<br>
 At $C08D88 - The memory area that holds the byte or word with the upper part of the timer count.<br>
 At $C08E88 - The memory area that holds the byte or word with the lower part of the timer count.<br>
 <br>
@@ -68,7 +68,3 @@ At $C08E88 - The memory area that holds the byte or word with the lower part of 
 - When you get the Power Up the text is coming from this memory area: $1027F0. Adding a Breakpoint anywhere here `17da 17f2 a29e a2b4 a2de a2c8` and you will catch it when it renders.
 - The timer counter shown on the screen is here $100562 either in byte or word.
 - A Breakpoint at $001128 will help and catch the exact instruction that helps debug what happens when "a shot" is taken - or when an interrupt happens.
-
-
-
-- 
