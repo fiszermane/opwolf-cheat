@@ -3,8 +3,11 @@
 
 I like this game a lot. Used to play it in C64 and at the arcade.
 I found myself playing it again and decided to learn how it works at a deeper level.
-It was frustrating not to be able to shoot faster - not even 
-
+It was frustrating not to be able to shoot faster - not even using turbo buttons (needed in my case).<br>
+<br>
+![alt text](itempowerup.png)
+<br>
+<br>
 The game is from 1987 and works with the Motorola 68000 with 16/32bit operations.
 
 
