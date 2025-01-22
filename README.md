@@ -47,8 +47,8 @@ I change this to <br><br>
 `00A35C  nop                  4E71`
 <br><br>
 Using the Cheat Engine:<br>
-`<action>maincpu.mw@00A35A=60F0</action>
-<action>maincpu.mw@00A35C=4E71</action>`
+`<action>maincpu.mw@00A35A=60F0</action>`<br>
+`<action>maincpu.mw@00A35C=4E71</action>`
 <br><br>
 Forcing it to go to an offset of `$F` bytes above but without decrementing the counter. The `$F` bytes is because the `DBRA D0, $A34A` jumps $F bytes so `$a35a - $a34a = $f`.<br>
 Because this created a "shorter" instruction other than the double word instruction which it replaces, I added a 2 bytes `nop` - `4E71` so it doesn't change anything of the remaining code.<br>
