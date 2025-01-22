@@ -1,0 +1,14 @@
+<mamecheat version="1">
+  <cheat desc="Unlimited Timer for Super Machine Gun">
+    <script state="on">
+      <action>temp0 =maincpu.md@00A35A</action>
+    </script>
+    <script state="run">
+      <action>maincpu.mw@00A35A=60F0</action>
+      <action>maincpu.mw@00A35C=4E71</action>
+    </script>
+    <script state="off">
+      <action>maincpu.md@00A35A=temp0 </action>
+    </script>
+  </cheat>
+</mamecheat>
