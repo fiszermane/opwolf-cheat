@@ -14,7 +14,7 @@ The game is from 1987 and works with the Motorola 68000 with 16/32bit operations
 # How to install
 
 ###
-1) The Cheats Plugin needs to be turned on.<br>
+1) The MAME Cheats Plugin needs to be turned on.<br>
    1a) It's in the mame.ini file. "Core Misc Options > cheat". Flag needs to be set to 1 (instead of 0).<br>
    1b) You can also turn it on from the user interface. "General Settings" > "Plugins" > "Cheats". 
 
@@ -32,15 +32,15 @@ The game is from 1987 and works with the Motorola 68000 with 16/32bit operations
 # How to Debug
 ###
 Launch the MAME debugger.<br>
-I used "-speed 0.2" to keep it at a minimum. I used: `mame -window -debug -speed 0.2 opwolf`
+I used `-speed 0.2` to keep speed at a minimum in case I needed to let it run. I used: `mame -window -debug -speed 0.2 opwolf`
 
 # How it works
 ###
-Its straight forward. The instruction that checks for the timer is:<br>
+Its straightforward. The instruction that checks for the timer is:<br>
 <br>
 `00A35A  dbra    D0, $a34a         51C8 FFEE`<br>
 <br>
-It's located in $00A35A. Decrease and branch to $a34a where it will quickly return to decrease again.<br>
+It's located in `$00A35A`. The command `dbra` - Decrease D0 and branch to `$a34a` where it will quickly return to decrease again.<br>
 <br>
 I change this to <br><br>
 `00A35A  bra     $a34c        60F0`<br>
@@ -50,8 +50,8 @@ Using the Cheat Engine:<br>
 `<action>maincpu.mw@00A35A=60F0</action>`<br>
 `<action>maincpu.mw@00A35C=4E71</action>`
 <br><br>
-Forcing it to go to an offset of `$F` bytes above but without decrementing the counter. The `$F` bytes is because the `DBRA D0, $A34A` jumps $F bytes so `$a35a - $a34a = $f`.<br>
-Because this created a "shorter" instruction other than the double word instruction which it replaces, I added a 2 bytes `nop` - `4E71` so it doesn't change anything of the remaining code.<br>
+With this I'm forcing the CPU to branch and go to an offset of `$F` bytes above but without decrementing the counter. The `$F` bytes is because the `DBRA D0, $A34A` jumps $F bytes so `$a35a - $a34a = $F`.<br>
+Because this created a "shorter" instruction other than the double word instruction which it replaces, I added a 2 bytes `nop` - `4E71` so it doesn't mess up with the remaining code.<br>
 <br>
 # More avenues of exploration
 <br>
